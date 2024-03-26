@@ -38,24 +38,6 @@ newdataset = pd.DataFrame(
     'output': tempout}
 )
 
-def generate_prompt(data_point):
-    """
-
-        # template = "Instruction:\n{instruction}\n\nResponse:\n{response}"
-
-    """
-
-    prefix_text = 'you are given the following instruction that describes the task.You are required to generate a responce that ' \
-               'appropriately completes the request.\n'
-    # Samples with additional context into.
-    if data_point['input'] and data_point['input'] != 'Not Applicable':
-        text = f"""Instruction:\n{prefix_text} {data_point["instruction"]} with the inputs {data_point["input"]}\n\nResponse:\n{data_point["output"]}"""
-    # Without
-    else:
-        text = f"""Instruction:\n{prefix_text} {data_point["instruction"]}\n\nResponse:\n{data_point["output"]}"""
-    return text
-
-
 
 
 # Assuming tempins, tempinp, and tempout are lists containing data for 'instruction', 'input', and 'output' respectively
